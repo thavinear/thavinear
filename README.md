@@ -2,7 +2,7 @@
 
 # Thavine Aragão
 
-<img src="https://raw.githubusercontent.com/thavinear/thavinear/output/penguin-building-igloo.svg" width="100%">
+<img src="https://raw.githubusercontent.com/thavinear/thavinear/main/penguin-igloo.svg" width="100%">
 
 </div>
 
