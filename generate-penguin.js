@@ -1,1 +1,241 @@
+const fs = require("fs");
 
+const svg = `
+<svg
+  width="100%"
+  viewBox="0 0 900 260"
+  xmlns="http://www.w3.org/2000/svg"
+>
+
+  <style>
+    .ground {
+      fill: #d9eaf5;
+    }
+
+    .ice {
+      fill: #9ed7f5;
+      stroke: #5caed6;
+      stroke-width: 2;
+    }
+
+    .igloo {
+      fill: #e8f7ff;
+      stroke: #9ecfe8;
+      stroke-width: 3;
+    }
+
+    .penguin-body {
+      fill: #1b1b1b;
+    }
+
+    .penguin-belly {
+      fill: #f5f5f5;
+    }
+
+    .beak {
+      fill: #f2b544;
+    }
+
+    .eye {
+      fill: #111;
+    }
+
+    .foot {
+      fill: #f2b544;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="900" height="260" fill="#ffffff"/>
+
+  <!-- Snow -->
+  <rect class="ground" x="0" y="210" width="900" height="50"/>
+
+  <!-- Ice block source -->
+  <rect class="ice" x="80" y="175" width="45" height="35" rx="5"/>
+  <rect class="ice" x="130" y="175" width="45" height="35" rx="5"/>
+
+  <!-- IGLOO -->
+
+  <g id="igloo">
+
+    <!-- Base -->
+    <rect class="igloo" x="610" y="165" width="170" height="45" rx="8"/>
+
+    <!-- Dome -->
+    <path
+      class="igloo"
+      d="M610 165
+         Q620 80 695 80
+         Q770 80 780 165
+         Z"
+    />
+
+    <!-- Igloo lines -->
+    <line x1="650" y1="95" x2="650" y2="165" stroke="#9ecfe8" stroke-width="2"/>
+    <line x1="695" y1="82" x2="695" y2="165" stroke="#9ecfe8" stroke-width="2"/>
+    <line x1="740" y1="95" x2="740" y2="165" stroke="#9ecfe8" stroke-width="2"/>
+
+    <!-- Door -->
+    <path
+      d="M675 210
+         V175
+         Q695 145 715 175
+         V210
+         Z"
+      fill="#7cb8d6"
+    />
+
+    <!-- Construction blocks -->
+    <rect class="ice" x="625" y="135" width="35" height="25" rx="4" opacity="0">
+      <animate
+        attributeName="opacity"
+        values="0;0;1;1"
+        keyTimes="0;0.55;0.60;1"
+        dur="8s"
+        repeatCount="indefinite"
+      />
+    </rect>
+
+    <rect class="ice" x="670" y="105" width="35" height="25" rx="4" opacity="0">
+      <animate
+        attributeName="opacity"
+        values="0;0;1;1"
+        keyTimes="0;0.65;0.70;1"
+        dur="8s"
+        repeatCount="indefinite"
+      />
+    </rect>
+
+    <rect class="ice" x="715" y="135" width="35" height="25" rx="4" opacity="0">
+      <animate
+        attributeName="opacity"
+        values="0;0;1;1"
+        keyTimes="0;0.75;0.80;1"
+        dur="8s"
+        repeatCount="indefinite"
+      />
+    </rect>
+
+  </g>
+
+
+  <!-- MOVING ICE BLOCK -->
+
+  <rect
+    class="ice"
+    x="0"
+    y="165"
+    width="35"
+    height="28"
+    rx="4"
+  >
+
+    <animate
+      attributeName="x"
+      values="170;170;520;520;170"
+      keyTimes="0;0.15;0.55;0.70;1"
+      dur="8s"
+      repeatCount="indefinite"
+    />
+
+    <animate
+      attributeName="opacity"
+      values="0;1;1;0;0"
+      keyTimes="0;0.10;0.60;0.70;1"
+      dur="8s"
+      repeatCount="indefinite"
+    />
+
+  </rect>
+
+
+  <!-- PENGUIN -->
+
+  <g id="penguin">
+
+    <!-- Movement -->
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="
+        80 0;
+        80 0;
+        480 0;
+        480 0;
+        80 0
+      "
+      keyTimes="0;0.15;0.55;0.70;1"
+      dur="8s"
+      repeatCount="indefinite"
+    />
+
+    <!-- Body -->
+    <ellipse
+      class="penguin-body"
+      cx="70"
+      cy="165"
+      rx="35"
+      ry="48"
+    />
+
+    <!-- Belly -->
+    <ellipse
+      class="penguin-belly"
+      cx="70"
+      cy="175"
+      rx="23"
+      ry="34"
+    />
+
+    <!-- Eyes -->
+    <circle class="eye" cx="58" cy="140" r="4"/>
+    <circle class="eye" cx="80" cy="140" r="4"/>
+
+    <!-- Beak -->
+    <polygon
+      class="beak"
+      points="64,148 76,148 70,158"
+    />
+
+    <!-- Feet -->
+    <ellipse class="foot" cx="55" cy="210" rx="13" ry="5"/>
+    <ellipse class="foot" cx="85" cy="210" rx="13" ry="5"/>
+
+    <!-- Walking animation -->
+    <animateTransform
+      attributeName="transform"
+      additive="sum"
+      type="rotate"
+      values="-2 70 190;2 70 190;-2 70 190"
+      dur="0.6s"
+      repeatCount="indefinite"
+    />
+
+  </g>
+
+
+  <!-- TEXT -->
+
+  <text
+    x="450"
+    y="245"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="14"
+    fill="#777"
+  >
+    building something new
+  </text>
+
+</svg>
+`;
+
+fs.mkdirSync("output", { recursive: true });
+
+fs.writeFileSync(
+  "output/penguin-building-igloo.svg",
+  svg.trim()
+);
+
+console.log("Animation generated successfully.");
