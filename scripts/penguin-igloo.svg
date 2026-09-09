@@ -1,1 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
 
+  <rect width="900" height="300" fill="#0d1117"/>
+
+  <!-- chão -->
+  <rect y="240" width="900" height="60" fill="#dcecf5"/>
+
+  <!-- lua/neve -->
+  <circle cx="780" cy="55" r="30" fill="#f1f7ff" opacity="0.9"/>
+
+  <!-- iglu -->
+  <g>
+    <path
+      d="M620 240
+         Q620 120 730 120
+         Q840 120 840 240 Z"
+      fill="#d9eef8"
+      stroke="#9cc8dd"
+      stroke-width="4"
+    />
+
+    <!-- linhas do iglu -->
+    <path d="M640 190 H820" stroke="#9cc8dd" stroke-width="3"/>
+    <path d="M655 155 H805" stroke="#9cc8dd" stroke-width="3"/>
+    <path d="M680 130 H780" stroke="#9cc8dd" stroke-width="3"/>
+
+    <!-- porta -->
+    <path
+      d="M700 240
+         V205
+         Q730 170 760 205
+         V240"
+      fill="#0d1117"
+      stroke="#9cc8dd"
+      stroke-width="4"
+    />
+
+    <!-- blocos aparecendo -->
+    <rect x="655" y="165" width="38" height="28" rx="4" fill="#a9d9ee">
+      <animate attributeName="opacity"
+        values="0;0;1;1"
+        keyTimes="0;0.35;0.4;1"
+        dur="8s"
+        repeatCount="indefinite"/>
+    </rect>
+
+    <rect x="700" y="130" width="38" height="28" rx="4" fill="#a9d9ee">
+      <animate attributeName="opacity"
+        values="0;0;1;1"
+        keyTimes="0;0.55;0.6;1"
+        dur="8s"
+        repeatCount="indefinite"/>
+    </rect>
+
+    <rect x="750" y="165" width="38" height="28" rx="4" fill="#a9d9ee">
+      <animate attributeName="opacity"
+        values="0;0;1;1"
+        keyTimes="0;0.75;0.8;1"
+        dur="8s"
+        repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+
+  <!-- bloco de gelo carregado -->
+  <g>
+    <rect x="0" y="175" width="35" height="28" rx="4"
+      fill="#a9d9ee"
+      stroke="#75b7d6"
+      stroke-width="2">
+
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="80 0;80 0;500 0;500 0;80 0"
+        keyTimes="0;0.15;0.55;0.65;1"
+        dur="8s"
+        repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+
+  <!-- pinguim -->
+  <g>
+
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 0;420 0;420 0;0 0"
+      keyTimes="0;0.15;0.55;0.65;1"
+      dur="8s"
+      repeatCount="indefinite"
+    />
+
+    <!-- corpo -->
+    <ellipse cx="120" cy="190" rx="42" ry="52" fill="#161b22"/>
+
+    <!-- barriga -->
+    <ellipse cx="120" cy="200" rx="28" ry="37" fill="#f5f5f5"/>
+
+    <!-- cabeça -->
+    <circle cx="120" cy="145" r="38" fill="#161b22"/>
+
+    <!-- olhos -->
+    <circle cx="108" cy="138" r="5" fill="white"/>
+    <circle cx="132" cy="138" r="5" fill="white"/>
+
+    <circle cx="108" cy="138" r="2" fill="#111"/>
+    <circle cx="132" cy="138" r="2" fill="#111"/>
+
+    <!-- bico -->
+    <polygon points="113,150 127,150 120,162" fill="#f4b942"/>
+
+    <!-- asas -->
+    <ellipse cx="78" cy="190" rx="12" ry="32" fill="#0b0f14"/>
+    <ellipse cx="162" cy="190" rx="12" ry="32" fill="#0b0f14"/>
+
+    <!-- pés -->
+    <ellipse cx="102" cy="240" rx="17" ry="7" fill="#f4b942"/>
+    <ellipse cx="138" cy="240" rx="17" ry="7" fill="#f4b942"/>
+
+    <!-- movimento andando -->
+    <animateTransform
+      attributeName="transform"
+      additive="sum"
+      type="rotate"
+      values="-2 120 240;2 120 240;-2 120 240"
+      dur="0.5s"
+      repeatCount="indefinite"
+    />
+
+  </g>
+
+
+  <!-- neve caindo -->
+  <g fill="white" opacity="0.8">
+
+    <circle cx="100" cy="20" r="3">
+      <animate attributeName="cy"
+        values="20;260"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="300" cy="50" r="3">
+      <animate attributeName="cy"
+        values="50;260"
+        dur="5s"
+        repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="500" cy="10" r="4">
+      <animate attributeName="cy"
+        values="10;260"
+        dur="6s"
+        repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="850" cy="30" r="3">
+      <animate attributeName="cy"
+        values="30;260"
+        dur="4.5s"
+        repeatCount="indefinite"/>
+    </circle>
+
+  </g>
+
+</svg>
