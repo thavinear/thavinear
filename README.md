@@ -8,7 +8,7 @@
 
 <div align="center">
 
-<img src="COLOQUE-AQUI-O-LINK-DA-ANIMACAO-DE-LUTA" width="100%" />
+<img src="https://pin.it/Qz3yRoCNA" width="100%" />
 
 </div>
 
